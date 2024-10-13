@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: "Pretendard Variable";
+  color: #0f161d;
+  font-weight: 300;
+  font-size: 20rem;
+
+  &::-webkit-scrollbar {
+    @apply h-[5rem] w-[5rem];
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply h-[5rem] w-[5rem] rounded-full bg-gray-400 bg-opacity-50;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply h-[5rem] w-[5rem] rounded-full bg-gray-200;
+    background-clip: padding-box;
+  }
+
+  @apply no-drag;
+}
+
+:root {
+  overscroll-behavior: none;
+}
+
+body {
+  min-height: calc(100% + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+}
+
+button {
+  @apply active:opacity-70;
+
+  /* @apply focus:outline-none focus-visible:outline focus-visible:outline-main-semidark active:outline-none; */
+}
+
+a {
+  /* @apply focus:outline-none focus-visible:outline focus-visible:outline-main-semidark active:outline-none; */
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+a {
+  cursor: pointer;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 5000px white inset !important;
+}
+
+.mainContainer {
+  @apply pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] pt-[env(safe-area-inset-top)];
+}

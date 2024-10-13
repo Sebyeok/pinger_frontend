@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/pinger_deploy/dev-sw.js?dev-sw', { scope: '/pinger_deploy/', type: 'classic' })

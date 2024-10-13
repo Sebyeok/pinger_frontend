@@ -1,0 +1,11 @@
+.SortableHeader:hover .hoverIcon {
+  @apply fill-gray-50;
+}
+
+.StudyTableBody tr:hover td {
+  @apply bg-main-dark;
+}
+
+.ClickedRow td {
+  @apply bg-main-dark;
+}
