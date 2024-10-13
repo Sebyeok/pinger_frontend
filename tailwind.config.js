@@ -32,6 +32,7 @@ export default {
         pingerCheckButton: "0px 0px 34px 0px rgba(63, 115, 200, 0.50)",
         mainModalButton: "0px 4px 64px 0px rgba(0, 0, 0, 0.20)",
         mainModalCloseButton: "0px 3px 18px rgba(97, 111, 124, 1)",
+        mainModalPingerCheckItem: "0px 2px 6px rgba(0,0,0,0.20)",
       },
       animation: {
         spin: "spin 1s linear infinite",

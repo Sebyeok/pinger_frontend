@@ -17,13 +17,13 @@ export default function IndividualCard({ tag, name, birth, recentRecord, isActiv
     <div
       className={tw(
         isActive ? "shadow-individualCard" : "opacity-50",
-        "border-navy-100 flex h-[178rem] w-[362rem] min-w-[362rem] items-center gap-[21rem] rounded-[12rem] border-[1.5rem] border-solid bg-white py-[22.5rem] pr-[14rem]"
+        "flex h-[178rem] w-[362rem] min-w-[362rem] items-center gap-[21rem] rounded-[12rem] border-[1.5rem] border-solid border-navy-100 bg-white py-[22.5rem] pr-[14rem]"
       )}
     >
       <div className="ml-[22rem] w-[89rem]">
         <div
           className={tw(
-            "ts-12-bold h-[22rem] w-fit rounded-full px-[12.5rem] py-[4rem]",
+            "h-[22rem] w-fit rounded-full px-[12.5rem] py-[4rem] ts-12-bold",
             tagColor,
             tag.color === "ktas3" ? "text-black" : "text-white"
           )}
@@ -34,15 +34,15 @@ export default function IndividualCard({ tag, name, birth, recentRecord, isActiv
           <div className={tw("ts-24-bold")}>{name}</div>
           <div className={tw("ts-24-medium")}>{"님"}</div>
         </div>
-        <div className={tw("ts-16-date mt-[6rem]")}>{birth.format("YYYY.MM.DD")}</div>
+        <div className={tw("mt-[6rem] ts-16-date")}>{birth.format("YYYY.MM.DD")}</div>
       </div>
       <div className="flex-1">
         <div className={tw("ml-[7.5rem]")}>
-          <div className={tw("ts-13-semibold text-gray-500")}>최근 의료 기록</div>
-          <div className={tw("ts-17-bold mt-[12rem]")}>{recentRecord.hospital}</div>
+          <div className={tw("text-gray-500 ts-13-semibold")}>최근 의료 기록</div>
+          <div className={tw("mt-[12rem] ts-17-bold")}>{recentRecord.hospital}</div>
           <div className={tw("mt-[5rem] flex gap-[10rem]")}>
-            <div className={tw("ts-14-medium-120 text-gray-500")}>방문일자</div>
-            <div className={tw("ts-14-medium-120 text-gray-600")}>{recentRecord.date.format("YYYY.MM.DD")}</div>
+            <div className={tw("text-gray-500 ts-14-medium-120")}>방문일자</div>
+            <div className={tw("text-gray-600 ts-14-medium-120")}>{recentRecord.date.format("YYYY.MM.DD")}</div>
           </div>
         </div>
         <div className={tw("my-[16rem] h-[1rem] w-full bg-black")} />

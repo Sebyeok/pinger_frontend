@@ -14,7 +14,7 @@ export default function IndividualCardContainer({ data }: IIndividualCardContain
   return (
     <div className="mt-[10rem] flex h-[208rem] w-screen items-center">
       <Swiper
-        className="scrollbar-hide h-[208rem] overflow-x-auto overflow-y-visible pl-[20rem] pr-[50rem] pt-[15rem]"
+        className="h-[208rem] overflow-x-auto overflow-y-visible pl-[20rem] pr-[50rem] pt-[15rem] scrollbar-hide"
         slidesPerView={"auto"}
         spaceBetween={"12rem"}
         onSlideChange={(e) => setActiveIndex(e.activeIndex)}

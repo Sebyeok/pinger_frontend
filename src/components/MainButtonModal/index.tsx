@@ -1,12 +1,17 @@
+import { useState } from "react";
+
 import { useRecoilState } from "recoil";
 
 import Svg from "../Svg";
+
+import PingerCheckModal from "./_PingerCheckModal";
 
 import { mainButtonModalState } from "@/store/atom";
 import { tw } from "@/utils/tw";
 
 export default function MainButtonModal() {
   const [modalOpen, setModalOpen] = useRecoilState(mainButtonModalState);
+  const [pingerCheckModalOpen, setPingerCheckModalOpen] = useState<boolean>(false);
 
   return (
     <div
@@ -18,14 +23,14 @@ export default function MainButtonModal() {
     >
       <div className="flex flex-col gap-[23rem] pt-[150rem]">
         <button
-          onClick={() => {}}
-          className="shadow-pingerCheckButton bg-navy-100 ts-18-semibold flex h-[71rem] w-[282rem] items-center justify-center rounded-full text-white"
+          onClick={() => setPingerCheckModalOpen(true)}
+          className="flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-navy-100 text-white shadow-pingerCheckButton ts-18-semibold"
         >
           PINGER CHECK !
         </button>
         <button
           onClick={() => {}}
-          className="shadow-mainModalButton ts-18-medium relative flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-[#F6F7FB] bg-opacity-70"
+          className="relative flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-[#F6F7FB] bg-opacity-70 shadow-mainModalButton ts-18-medium"
         >
           <div className="absolute left-[17rem] flex h-[39rem] w-[39rem] items-center justify-center rounded-full bg-white">
             <Svg iconName="thunderIcon" className="h-[19rem] w-[13rem]" />
@@ -34,7 +39,7 @@ export default function MainButtonModal() {
         </button>
         <button
           onClick={() => {}}
-          className="shadow-mainModalButton ts-18-medium relative flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-[#F6F7FB] bg-opacity-70"
+          className="relative flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-[#F6F7FB] bg-opacity-70 shadow-mainModalButton ts-18-medium"
         >
           <div className="absolute left-[17rem] flex h-[39rem] w-[39rem] items-center justify-center rounded-full bg-white">
             <Svg iconName="calendarIcon" className="h-[17rem] w-[19rem]" />
@@ -43,7 +48,7 @@ export default function MainButtonModal() {
         </button>
         <button
           onClick={() => {}}
-          className="shadow-mainModalButton ts-18-medium relative flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-[#F6F7FB] bg-opacity-70"
+          className="relative flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-[#F6F7FB] bg-opacity-70 shadow-mainModalButton ts-18-medium"
         >
           <div className="absolute left-[17rem] flex h-[39rem] w-[39rem] items-center justify-center rounded-full bg-white">
             <Svg iconName="diseaseIcon" className="h-[17rem] w-[17rem]" />
@@ -52,7 +57,7 @@ export default function MainButtonModal() {
         </button>
         <button
           onClick={() => {}}
-          className="shadow-mainModalButton ts-18-medium relative flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-[#F6F7FB] bg-opacity-70"
+          className="relative flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-[#F6F7FB] bg-opacity-70 shadow-mainModalButton ts-18-medium"
         >
           <div className="absolute left-[17rem] flex h-[39rem] w-[39rem] items-center justify-center rounded-full bg-white">
             <Svg iconName="heartIcon" className="h-[17rem] w-[19rem]" />
@@ -62,10 +67,11 @@ export default function MainButtonModal() {
       </div>
       <button
         onClick={() => setModalOpen(false)}
-        className="shadow-mainModalCloseButton bg-navy-200 absolute bottom-[32rem] flex h-[56rem] w-[56rem] items-center justify-center rounded-full"
+        className="absolute bottom-[32rem] flex h-[56rem] w-[56rem] items-center justify-center rounded-full bg-navy-200 shadow-mainModalCloseButton"
       >
         <Svg iconName="closeIcon" className="h-[16rem] w-[16rem]" />
       </button>
+      <PingerCheckModal modalOpen={pingerCheckModalOpen} setModalOpen={setPingerCheckModalOpen} />
     </div>
   );
 }

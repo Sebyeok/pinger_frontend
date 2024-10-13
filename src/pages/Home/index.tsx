@@ -9,36 +9,10 @@ import healthInsight3 from "@images/healthInsight3.png";
 import IndividualCardContainer from "./_IndividualCardContainer";
 import SubmissionConfirmMessageToast from "./_SubmissionConfirmMessageToast";
 
+import { familyData } from "@/assets/data/familyData";
 import BottomTab from "@/components/BottomTab";
 import Svg from "@/components/Svg";
 import { tw } from "@/utils/tw";
-
-const individualCardData = [
-  {
-    tag: { text: "본인", color: "ktas1" },
-    name: "정재형",
-    birth: dayjs("1981-12-31"),
-    recentRecord: { hospital: "경북건강내과외과의원", date: dayjs("2024-03-20") },
-  },
-  {
-    tag: { text: "배우자", color: "ktas2" },
-    name: "이윤정",
-    birth: dayjs("1984-05-28"),
-    recentRecord: { hospital: "아름산부인과여성병원", date: dayjs("2024-05-10") },
-  },
-  {
-    tag: { text: "자녀", color: "ktas3" },
-    name: "정진아",
-    birth: dayjs("2015-12-15"),
-    recentRecord: { hospital: "한빛소아청소년병원", date: dayjs("2024-07-28") },
-  },
-  {
-    tag: { text: "부모님", color: "ktas4" },
-    name: "정우철",
-    birth: dayjs("1955-07-09"),
-    recentRecord: { hospital: "정담케어내과의원", date: dayjs("2024-04-07") },
-  },
-];
 
 export default function Home() {
   const [selectedHealthInsight, setSelectedHealthInsight] = useState<number>(1);
@@ -55,15 +29,15 @@ export default function Home() {
           <Svg iconName="homeAlarmIcon" className="h-[31rem] w-[34rem]" />
         </div>
       </div>
-      <div className="ts-24-semibold ml-[29rem] mt-[47rem]">우리 모두의 건강을 알아보아요!</div>
-      <IndividualCardContainer data={individualCardData} />
+      <div className="ml-[29rem] mt-[47rem] ts-24-semibold">우리 모두의 건강을 알아보아요!</div>
+      <IndividualCardContainer data={familyData} />
       <div className="mt-[6rem] h-[6rem] w-full bg-gray-100" />
       <div className="mt-[21rem] flex h-[31rem] w-full items-center justify-between px-[29rem]">
         <div className="text-ktas2 ts-22-extrabold">건강 Insight</div>
         <div className="flex gap-[2rem]">
           <button
             className={tw(
-              "ts-14-semibold rounded-[60rem] px-[10rem] py-[6rem] transition-colors",
+              "rounded-[60rem] px-[10rem] py-[6rem] transition-colors ts-14-semibold",
               selectedHealthInsight === 1 ? "bg-ktas2 text-white" : "text-gray-600"
             )}
             onClick={() => setSelectedHealthInsight(1)}
@@ -72,7 +46,7 @@ export default function Home() {
           </button>
           <button
             className={tw(
-              "ts-14-semibold rounded-[60rem] px-[10rem] py-[6rem] transition-colors",
+              "rounded-[60rem] px-[10rem] py-[6rem] transition-colors ts-14-semibold",
               selectedHealthInsight === 2 ? "bg-ktas2 text-white" : "text-gray-600"
             )}
             onClick={() => setSelectedHealthInsight(2)}
@@ -81,7 +55,7 @@ export default function Home() {
           </button>
           <button
             className={tw(
-              "ts-14-semibold rounded-[60rem] px-[10rem] py-[6rem] transition-colors",
+              "rounded-[60rem] px-[10rem] py-[6rem] transition-colors ts-14-semibold",
               selectedHealthInsight === 3 ? "bg-ktas2 text-white" : "text-gray-600"
             )}
             onClick={() => setSelectedHealthInsight(3)}
