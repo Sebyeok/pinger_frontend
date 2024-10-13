@@ -14,13 +14,13 @@ export default function IndividualCardContainer({ data }: IIndividualCardContain
   return (
     <div className="mt-[10rem] flex h-[208rem] w-screen items-center">
       <Swiper
-        className="scrollbar-hide items-center overflow-x-auto overflow-y-visible pl-[20rem] pr-[50rem]"
+        className="scrollbar-hide h-[208rem] overflow-x-auto overflow-y-visible pl-[20rem] pr-[50rem] pt-[15rem]"
         slidesPerView={"auto"}
         spaceBetween={"12rem"}
         onSlideChange={(e) => setActiveIndex(e.activeIndex)}
       >
         {data.map((item, index) => (
-          <SwiperSlide key={item.name + item.tag + index} className="w-[362rem]">
+          <SwiperSlide key={item.name + item.tag + index} className="h-[178rem] w-[362rem]">
             <IndividualCard {...item} isActive={index === activeIndex} />
           </SwiperSlide>
         ))}
