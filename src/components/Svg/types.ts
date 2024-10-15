@@ -7,6 +7,7 @@ bun svg
 import { ComponentPropsWithoutRef } from 'react';
 
 export type TSvgName = 
+    | 'backIcon'
     | 'bottomTabHomeIcon'
     | 'bottomTabListIcon'
     | 'bottomTabMainIcon'
