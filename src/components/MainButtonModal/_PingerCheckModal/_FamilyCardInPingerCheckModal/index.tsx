@@ -1,7 +1,10 @@
 import dayjs, { Dayjs } from "dayjs";
+import { useRecoilState } from "recoil";
 
 import { IFamilyCardInPingerCheckModalProps } from "./types";
 
+import useCustomNavigate from "@/hooks/useCustomNavigate";
+import { mainButtonModalState } from "@/store/atom";
 import { tw } from "@/utils/tw";
 
 export default function FamilyCardInPingerCheckModal({
@@ -10,6 +13,8 @@ export default function FamilyCardInPingerCheckModal({
   birth,
   isActive,
 }: IFamilyCardInPingerCheckModalProps) {
+  const navigate = useCustomNavigate();
+  const [modalOpen, setModalOpen] = useRecoilState(mainButtonModalState);
   const tagColor =
     tag.color === "ktas1"
       ? "bg-ktas1"
@@ -43,12 +48,16 @@ export default function FamilyCardInPingerCheckModal({
   }
 
   return (
-    <div
+    <button
       className={tw(
         isActive ? "shadow-individualCard" : "opacity-50",
         "mr-[15rem] h-[207rem] w-[169rem] min-w-[169rem] rounded-[20rem] border-[1.5rem] border-solid bg-white px-[20rem] py-[19rem]",
         borderColor
       )}
+      onClick={() => {
+        setModalOpen(false);
+        navigate("/PingerCheck/", "slideFromRight");
+      }}
     >
       <div
         className={tw(
@@ -67,6 +76,6 @@ export default function FamilyCardInPingerCheckModal({
         <div className={tw("mt-[6rem] ts-16-date")}>{birth.format("YYYY.MM.DD")}</div>
         <div className={tw("mt-[6rem] ts-16-semibold")}>만 {age}세</div>
       </div>
-    </div>
+    </button>
   );
 }

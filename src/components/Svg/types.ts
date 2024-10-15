@@ -20,6 +20,7 @@ export type TSvgName =
     | 'homeLocationIcon'
     | 'pingerLogo'
     | 'pingerTextLogo'
+    | 'searchIcon'
     | 'thunderIcon'
     | 'upRightIcon';
 

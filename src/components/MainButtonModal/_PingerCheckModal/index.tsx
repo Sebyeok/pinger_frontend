@@ -20,6 +20,7 @@ export default function PingerCheckModal({ modalOpen, setModalOpen }: IPingerChe
         "absolute top-0 flex h-screen w-screen flex-col items-center justify-end bg-[#3E4C59] bg-opacity-70 backdrop-blur-[20rem]"
       )}
     >
+      <div className={tw("absolute top-0 h-screen w-screen")} onClick={() => setModalOpen(false)} />
       <div
         className={tw(
           modalOpen ? "translate-y-0" : "translate-y-full",
@@ -32,7 +33,7 @@ export default function PingerCheckModal({ modalOpen, setModalOpen }: IPingerChe
         <div className={tw("mt-[14rem] ts-16-medium")}>증상 분류를 시작할 프로필을 선택해주세요.</div>
         <div className="mt-[21rem] flex h-[208rem] w-screen items-center">
           <Swiper
-            className="h-[227rem] overflow-x-auto overflow-y-visible pl-[20rem] pr-[50rem] pt-[15rem] scrollbar-hide"
+            className="h-[247rem] overflow-x-auto overflow-y-visible pl-[20rem] pr-[50rem] pt-[25rem] scrollbar-hide"
             slidesPerView={2}
             onSlideChange={(e) => setActiveIndex(e.activeIndex)}
           >

@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import dayjs from "dayjs";
-
 import healthInsight1 from "@images/healthInsight1.png";
 import healthInsight2 from "@images/healthInsight2.png";
 import healthInsight3 from "@images/healthInsight3.png";
@@ -16,7 +14,6 @@ import { tw } from "@/utils/tw";
 
 export default function Home() {
   const [selectedHealthInsight, setSelectedHealthInsight] = useState<number>(1);
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
   return (
     <div className="mainContainer h-screen w-full bg-white">
       <div className="mt-[6rem] flex h-[43rem] w-full justify-between pl-[29rem] pr-[20.5rem]">

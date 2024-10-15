@@ -4,7 +4,7 @@ import App from "@/App";
 
 import { WrongAccess } from "@/pages/Error/WrongAccess";
 import Home from "@/pages/Home";
-import Login from "@/pages/Login";
+import PingerCheck from "@/pages/PingerCheck";
 
 const router = createBrowserRouter(
   [
@@ -22,8 +22,8 @@ const router = createBrowserRouter(
               element: <Home />,
             },
             {
-              path: "login",
-              element: <Login />,
+              path: "PingerCheck",
+              element: <PingerCheck />,
             },
           ],
         },

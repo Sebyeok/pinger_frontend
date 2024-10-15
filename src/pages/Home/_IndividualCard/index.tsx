@@ -48,7 +48,7 @@ export default function IndividualCard({ tag, name, birth, recentRecord, isActiv
         <div className={tw("my-[16rem] h-[1rem] w-full bg-black")} />
         <button className={tw("mx-[7.5rem] flex w-[calc(100%-15rem)] items-center justify-between")}>
           <div className={tw("ts-16-semibold")}>{tag.text === "본인" ? "나의 질병 관리" : "질병 관리"}</div>
-          <Svg iconName="upRightIcon" className="h-[13rem] w-[13rem]" />
+          <Svg iconName="upRightIcon" className="h-[13rem] w-[13rem] stroke-black" />
         </button>
       </div>
     </div>
