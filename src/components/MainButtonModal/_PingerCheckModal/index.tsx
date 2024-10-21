@@ -33,13 +33,17 @@ export default function PingerCheckModal({ modalOpen, setModalOpen }: IPingerChe
         <div className={tw("mt-[14rem] ts-16-medium")}>증상 분류를 시작할 프로필을 선택해주세요.</div>
         <div className="mt-[21rem] flex h-[208rem] w-screen items-center">
           <Swiper
-            className="h-[247rem] overflow-x-auto overflow-y-visible pl-[20rem] pr-[50rem] pt-[25rem] scrollbar-hide"
+            className="h-[247rem] overflow-x-auto overflow-y-visible pl-[20rem] pr-[50rem] pt-[25rem]"
             slidesPerView={2}
             onSlideChange={(e) => setActiveIndex(e.activeIndex)}
           >
             {familyData.map((item, index) => (
               <SwiperSlide key={item.name + item.tag + index} className="h-[207rem] w-[169rem]">
-                <FamilyCardInPingerCheckModal {...item} isActive={index === activeIndex || index === activeIndex + 1} />
+                <FamilyCardInPingerCheckModal
+                  {...item}
+                  setModalOpen={setModalOpen}
+                  isActive={index === activeIndex || index === activeIndex + 1}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -48,7 +52,7 @@ export default function PingerCheckModal({ modalOpen, setModalOpen }: IPingerChe
           onClick={() => setModalOpen(false)}
           className="absolute bottom-[32rem] flex h-[56rem] w-[56rem] items-center justify-center rounded-full bg-navy-200 shadow-mainModalCloseButton"
         >
-          <Svg iconName="closeIcon" className="h-[16rem] w-[16rem]" />
+          <Svg iconName="closeIcon" className="h-[16rem] w-[16rem] fill-white" />
         </button>
       </div>
     </div>

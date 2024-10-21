@@ -1,52 +1,52 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const svgFolderPath = 'src/assets/images/svg/';
-const outputFile = 'src/components/Svg/types.ts';
+const svgFolderPath = "src/assets/images/svg/";
+const outputFile = "src/components/Svg/types.ts";
 
 function generateSvgData() {
-    let header = `\
+  let header = `\
 /*
 npm run svg
 yarn svg
 bun svg
 */
 
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef } from "react";
 
-export type TSvgName = 
+export type TSvgName =
 `;
 
-    // Set to track existing keys
-    const existingKeys = new Set();
+  // Set to track existing keys
+  const existingKeys = new Set();
 
-    // Process files directly present in the 'svg/' folder
-    const svgFiles = fs.readdirSync(svgFolderPath).filter((file) => file.endsWith('.svg'));
-    svgFiles.forEach((svgFile) => {
-        const svgName = path.parse(svgFile).name;
+  // Process files directly present in the 'svg/' folder
+  const svgFiles = fs.readdirSync(svgFolderPath).filter((file) => file.endsWith(".svg"));
+  svgFiles.forEach((svgFile) => {
+    const svgName = path.parse(svgFile).name;
 
-        // Check for duplicate keys
-        if (existingKeys.has(svgName)) {
-            console.error(`Duplicate key found: ${svgName}`);
-            process.exit(1);
-        }
+    // Check for duplicate keys
+    if (existingKeys.has(svgName)) {
+      console.error(`Duplicate key found: ${svgName}`);
+      process.exit(1);
+    }
 
-        existingKeys.add(svgName);
-    });
+    existingKeys.add(svgName);
+  });
 
-    const svgTypeDefinitions = [...existingKeys].map((key) => `    | '${key}'`).join('\n');
+  const svgTypeDefinitions = [...existingKeys].map((key) => `  | "${key}"`).join("\n");
 
-    let footer = `${svgTypeDefinitions};
+  let footer = `${svgTypeDefinitions};
 
 export interface ISvgProps extends React.SVGProps<SVGSVGElement> {
-    iconName: TSvgName;
-    svgProps?: ComponentPropsWithoutRef<'svg'>;
+  iconName: TSvgName;
+  svgProps?: ComponentPropsWithoutRef<"svg">;
 }
 `;
 
-    fs.writeFileSync(outputFile, header + footer);
+  fs.writeFileSync(outputFile, header + footer);
 
-    console.log(`Generated Svg Data in ${outputFile}`);
+  console.log(`Generated Svg Data in ${outputFile}`);
 }
 
 generateSvgData();

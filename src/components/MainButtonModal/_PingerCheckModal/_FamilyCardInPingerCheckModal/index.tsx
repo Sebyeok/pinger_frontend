@@ -1,5 +1,5 @@
 import dayjs, { Dayjs } from "dayjs";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 
 import { IFamilyCardInPingerCheckModalProps } from "./types";
 
@@ -12,9 +12,10 @@ export default function FamilyCardInPingerCheckModal({
   name,
   birth,
   isActive,
+  setModalOpen,
 }: IFamilyCardInPingerCheckModalProps) {
   const navigate = useCustomNavigate();
-  const [modalOpen, setModalOpen] = useRecoilState(mainButtonModalState);
+  const setMainButtonModalOpen = useSetRecoilState(mainButtonModalState);
   const tagColor =
     tag.color === "ktas1"
       ? "bg-ktas1"
@@ -56,6 +57,7 @@ export default function FamilyCardInPingerCheckModal({
       )}
       onClick={() => {
         setModalOpen(false);
+        setMainButtonModalOpen(false);
         navigate("/PingerCheck/", "slideFromRight");
       }}
     >

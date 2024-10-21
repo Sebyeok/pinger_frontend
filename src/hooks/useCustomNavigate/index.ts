@@ -7,6 +7,7 @@ import { TPageTransition } from "@/layout/GlobalMain/types";
 export default function useCustomNavigate(): TUseCustomNavigateProps {
   const navigate = useNavigate();
   return (to: To, transition: TPageTransition, options?: NavigateOptions) => {
-    navigate(to, { ...options, state: { transition }, replace: true });
+    const state = options?.state ? { ...options.state, transition } : { transition };
+    navigate(to, { ...options, state, replace: true });
   };
 }

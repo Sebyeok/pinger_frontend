@@ -4,7 +4,9 @@ import App from "@/App";
 
 import { WrongAccess } from "@/pages/Error/WrongAccess";
 import Home from "@/pages/Home";
-import PingerCheck from "@/pages/PingerCheck";
+import Map from "@/pages/Map";
+import PingerCheck from "@/pages/PingerCheck/Home";
+import PingerCheckDetail from "@/pages/PingerCheck/PingerCheckDetail";
 
 const router = createBrowserRouter(
   [
@@ -22,8 +24,17 @@ const router = createBrowserRouter(
               element: <Home />,
             },
             {
+              path: "Map",
+              element: <Map />,
+            },
+            {
               path: "PingerCheck",
-              element: <PingerCheck />,
+              element: <Outlet />,
+              children: [
+                { path: "", element: <PingerCheck /> },
+                { path: "Detail", element: <PingerCheckDetail /> },
+                { path: "DetailTemp", element: <PingerCheckDetail /> },
+              ],
             },
           ],
         },

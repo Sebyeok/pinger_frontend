@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useRecoilState } from "recoil";
 
@@ -69,7 +69,7 @@ export default function MainButtonModal() {
         onClick={() => setModalOpen(false)}
         className="absolute bottom-[32rem] flex h-[56rem] w-[56rem] items-center justify-center rounded-full bg-navy-200 shadow-mainModalCloseButton"
       >
-        <Svg iconName="closeIcon" className="h-[16rem] w-[16rem]" />
+        <Svg iconName="closeIcon" className="h-[16rem] w-[16rem] fill-white" />
       </button>
       <PingerCheckModal modalOpen={pingerCheckModalOpen} setModalOpen={setPingerCheckModalOpen} />
     </div>

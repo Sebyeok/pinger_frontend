@@ -5,4 +5,5 @@ export interface IFamilyCardInPingerCheckModalProps {
   name: string;
   birth: Dayjs;
   isActive: boolean;
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }

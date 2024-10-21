@@ -2,11 +2,7 @@ export const palette = {
   transparent: "transparent",
   navy: { 100: "#0E2848", 200: "#142133" },
   black: "#0F161D",
-  white: {
-    DEFAULT: "#FFFFFF",
-    "opacity-30": "#FFFFFF4D",
-    "opacity-80": "#FFFFFFCC",
-  },
+  white: "#FFFFFF",
   gray: {
     100: "#F6F7FB",
     200: "#E3E8EE",

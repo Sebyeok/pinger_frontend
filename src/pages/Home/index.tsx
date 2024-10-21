@@ -14,6 +14,7 @@ import { tw } from "@/utils/tw";
 
 export default function Home() {
   const [selectedHealthInsight, setSelectedHealthInsight] = useState<number>(1);
+
   return (
     <div className="mainContainer h-screen w-full bg-white">
       <div className="mt-[6rem] flex h-[43rem] w-full justify-between pl-[29rem] pr-[20.5rem]">

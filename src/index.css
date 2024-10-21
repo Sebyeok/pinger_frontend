@@ -27,7 +27,7 @@
     background-clip: padding-box;
   }
 
-  @apply no-drag;
+  @apply no-drag scrollbar-hide;
 }
 
 :root {

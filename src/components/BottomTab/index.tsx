@@ -4,6 +4,7 @@ import { useSetRecoilState } from "recoil";
 
 import Svg from "../Svg";
 
+import useCustomNavigate from "@/hooks/useCustomNavigate";
 import { mainButtonModalState } from "@/store/atom";
 import { tw } from "@/utils/tw";
 
@@ -16,6 +17,7 @@ const bottomTabPathname: { [key: string]: string } = {
 
 export default function BottomTab() {
   const setModalOpen = useSetRecoilState(mainButtonModalState);
+  const navigate = useCustomNavigate();
   const pathname = useLocation().pathname;
   const nowIn = bottomTabPathname[pathname];
 
@@ -26,6 +28,7 @@ export default function BottomTab() {
           <Svg
             iconName="bottomTabHomeIcon"
             className={tw(nowIn === "home" ? "stroke-navy-100" : "stroke-gray-400", "h-[28rem] w-[27rem]")}
+            onClick={() => navigate("/", "slideFromRight")}
           />
         </button>
         <button className="flex h-[46rem] w-[46rem] items-center justify-center">
@@ -35,11 +38,12 @@ export default function BottomTab() {
               nowIn === "map" ? "fill-navy-100 stroke-navy-100" : "fill-gray-400 stroke-gray-400",
               "h-[30rem] w-[28rem]"
             )}
+            onClick={() => navigate("/Map", "slideFromLeft")}
           />
         </button>
         <button
           className={tw(
-            "shadow-bottomTabButton flex h-[46rem] w-[46rem] items-center justify-center rounded-full",
+            "flex h-[46rem] w-[46rem] items-center justify-center rounded-full shadow-bottomTabButton",
             "bg-navy-100"
           )}
           onClick={() => setModalOpen(true)}
