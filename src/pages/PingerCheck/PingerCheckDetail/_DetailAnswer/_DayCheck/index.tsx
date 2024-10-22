@@ -64,11 +64,13 @@ export default function DayCheck() {
         </div>
       </div>
 
-      <button
-        className={tw("relative mt-[0rem] h-[42rem] w-[214rem] rounded-[20rem] bg-white text-navy-100 ts-16-bold")}
+      <div
+        className={tw(
+          "relative mt-[0rem] flex h-[42rem] w-[214rem] items-center justify-center rounded-[20rem] bg-white text-navy-100 ts-16-bold"
+        )}
       >
         {`${now.diff(dayArray[selectedDay], "day")} 일`}
-      </button>
+      </div>
     </div>
   );
 }

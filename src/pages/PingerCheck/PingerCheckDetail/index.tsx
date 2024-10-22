@@ -7,6 +7,7 @@ import MultiChoice from "./_Answer/_MultiChoice";
 import Pain from "./_Answer/_Pain";
 import Temperature from "./_Answer/_Temperature";
 import DayCheck from "./_DetailAnswer/_DayCheck";
+import MonthCheck from "./_DetailAnswer/_MonthCheck";
 import SingleChoice from "./_DetailAnswer/_SingleChoice";
 import TimeCheck from "./_DetailAnswer/_TimeCheck";
 
@@ -37,7 +38,8 @@ export default function PingerCheckDetail() {
           {/* {<Pain />} */}
           {/* {<SingleChoice />} */}
           {/* {<TimeCheck />} */}
-          {<DayCheck />}
+          {/* {<DayCheck />} */}
+          {<MonthCheck />}
         </div>
       </div>
     </div>
