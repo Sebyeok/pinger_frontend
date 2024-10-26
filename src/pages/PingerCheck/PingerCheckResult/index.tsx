@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import Svg from "@/components/Svg";
+import useCustomNavigate from "@/hooks/useCustomNavigate";
 import { tw } from "@/utils/tw";
 
 const diseaseData = [
@@ -42,6 +43,7 @@ const recommendedActionData = [
 ];
 
 export default function PingerCheckResult() {
+  const navigate = useCustomNavigate();
   const location = useLocation();
   const name = location.state.data.name;
 
@@ -62,7 +64,10 @@ export default function PingerCheckResult() {
               </div>
               <div className={tw("ts-26-semibold-177")}>분석 결과입니다.</div>
             </div>
-            <button className={tw("absolute right-0 top-[4rem] h-[25rem] w-[32rem] text-gray-600 ts-18-medium")}>
+            <button
+              onClick={() => navigate("/", "fade", { state: location.state })}
+              className={tw("absolute right-0 top-[4rem] h-[25rem] w-[32rem] text-gray-600 ts-18-medium")}
+            >
               확인
             </button>
           </div>
