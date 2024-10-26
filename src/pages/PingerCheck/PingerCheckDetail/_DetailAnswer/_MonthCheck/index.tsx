@@ -1,13 +1,15 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import dayjs from "dayjs";
 
+import { IMonthCheckProps } from "./types";
+
 import { tw } from "@/utils/tw";
 
-export default function MonthCheck() {
+export default function MonthCheck({ setChoiceData, dataIndex, page }: IMonthCheckProps) {
   const now = useMemo(() => dayjs(), []);
 
-  const dayArray = useMemo(() => {
+  const monthArray = useMemo(() => {
     const arr = [];
     for (let i = 11; i > 0; i--) arr.push(now.subtract(i, "month"));
     return arr;
@@ -15,16 +17,19 @@ export default function MonthCheck() {
 
   const [selectedMonth, setSelectedMonth] = useState<number>(10);
 
+  useEffect(() => {
+    if (dataIndex === page) setChoiceData([String(selectedMonth)]);
+  }, [selectedMonth, page]);
   return (
     <div
       className={tw(
-        "absolute bottom-[111rem] left-[8rem] mt-[12rem] flex h-[calc(100%-env(safe-area-inset-top)-339rem)] w-[calc(100%-16rem)] flex-1 flex-col items-center rounded-[25rem] bg-navy-100 px-[43.5rem] pt-[24rem]"
+        "mt-[12rem] flex h-full w-[calc(100%-16rem)] flex-col items-center rounded-[25rem] bg-navy-100 px-[43.5rem] py-[24rem]"
       )}
     >
       <div className={tw("text-[50rem] font-semibold leading-[60rem] text-white")}>Q.</div>
       <div className={tw("mt-[10rem] text-white ts-20-medium")}>통증을 느낀지 몇 달 되었나요?</div>
       <div className={tw("my-[22rem] flex w-[336rem] flex-wrap gap-y-[20rem]")}>
-        {dayArray.map((day, index) => (
+        {monthArray.map((day, index) => (
           <div
             key={index}
             onClick={() => setSelectedMonth(index)}
@@ -73,7 +78,7 @@ export default function MonthCheck() {
           "relative mt-[57rem] flex h-[42rem] w-[214rem] items-center justify-center rounded-[20rem] bg-white text-navy-100 ts-16-bold"
         )}
       >
-        {`약 ${now.diff(dayArray[selectedMonth], "month")} 개월`}
+        {`약 ${now.diff(monthArray[selectedMonth], "month")} 개월`}
       </div>
     </div>
   );

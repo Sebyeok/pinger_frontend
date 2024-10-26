@@ -1,10 +1,12 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import dayjs from "dayjs";
 
+import { IDayCheckProps } from "./types";
+
 import { tw } from "@/utils/tw";
 
-export default function DayCheck() {
+export default function DayCheck({ setChoiceData, dataIndex, page }: IDayCheckProps) {
   const now = useMemo(() => dayjs(), []);
 
   const dayArray = useMemo(() => {
@@ -15,10 +17,14 @@ export default function DayCheck() {
 
   const [selectedDay, setSelectedDay] = useState<number>(28);
 
+  useEffect(() => {
+    if (dataIndex === page) setChoiceData([String(selectedDay)]);
+  }, [selectedDay, page]);
+
   return (
     <div
       className={tw(
-        "absolute bottom-[111rem] left-[8rem] mt-[12rem] flex h-[calc(100%-env(safe-area-inset-top)-339rem)] w-[calc(100%-16rem)] flex-1 flex-col items-center rounded-[25rem] bg-navy-100 px-[43.5rem] pt-[24rem]"
+        "mt-[12rem] flex h-full w-[calc(100%-16rem)] flex-col items-center rounded-[25rem] bg-navy-100 px-[43.5rem] py-[24rem]"
       )}
     >
       <div className={tw("text-[50rem] font-semibold leading-[60rem] text-white")}>Q.</div>

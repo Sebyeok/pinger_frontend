@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { ITemperatureProps } from "./types";
 
 import Svg from "@/components/Svg";
 import { tw } from "@/utils/tw";
 
-export default function Temperature() {
+export default function Temperature({ setChoiceData, page, dataIndex }: ITemperatureProps) {
   const [temperature, setTemperature] = useState<string>("");
 
   function validateTemperature(text: string) {
     const pattern = /^(?:[1-9]\d{0,1}\.[1-9]|[1-9]\d{0,1}|)$/;
     return pattern.test(text);
   }
+
+  useEffect(() => {
+    if (page === dataIndex) setChoiceData([temperature]);
+  }, [temperature, page]);
 
   return (
     <div>

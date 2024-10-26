@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-import { TPageTransitionState } from "./type";
+import { TPageTransitionState, TPingerCheckData } from "./type";
 
 export const pageTransitionState = atom<TPageTransitionState>({
   key: "pageTransitionState",

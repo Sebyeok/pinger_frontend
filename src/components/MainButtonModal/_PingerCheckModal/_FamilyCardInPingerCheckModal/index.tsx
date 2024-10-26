@@ -58,7 +58,7 @@ export default function FamilyCardInPingerCheckModal({
       onClick={() => {
         setModalOpen(false);
         setMainButtonModalOpen(false);
-        navigate("/PingerCheck/", "slideFromRight");
+        navigate("/PingerCheck/", "slideFromRight", { state: { data: { name: name } } });
       }}
     >
       <div

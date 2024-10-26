@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { IBurnBodySurfaceProps } from "./types";
 
 import { tw } from "@/utils/tw";
 
@@ -13,8 +15,13 @@ const burnBodySurfaceData = [
   },
 ];
 
-export default function BurnBodySurface() {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+export default function BurnBodySurface({ dataIndex, page, setChoiceData }: IBurnBodySurfaceProps) {
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+
+  useEffect(() => {
+    if (dataIndex === page && selectedIndex !== -1) setChoiceData([String(selectedIndex)]);
+  }, [selectedIndex, page]);
+
   return (
     <div
       className={tw("flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible pb-[60rem] pt-[7rem]")}
@@ -23,7 +30,7 @@ export default function BurnBodySurface() {
         <button
           key={data.title}
           className={tw(
-            selectedIndex === index ? "shadow-multiChoiceItemButton border-[1rem] border-solid border-navy-100" : "",
+            selectedIndex === index ? "border-[1rem] border-solid border-navy-100 shadow-multiChoiceItemButton" : "",
             "flex min-h-[76rem] w-[calc(100%-0.5rem)] items-center rounded-[12rem] bg-white px-[14rem] py-[18rem]"
           )}
           onClick={() => setSelectedIndex(index)}

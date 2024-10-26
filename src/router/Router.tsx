@@ -7,6 +7,8 @@ import Home from "@/pages/Home";
 import Map from "@/pages/Map";
 import PingerCheck from "@/pages/PingerCheck/Home";
 import PingerCheckDetail from "@/pages/PingerCheck/PingerCheckDetail";
+import PingerCheckLoading from "@/pages/PingerCheck/PingerCheckLoading";
+import PingerCheckResult from "@/pages/PingerCheck/PingerCheckResult";
 
 const router = createBrowserRouter(
   [
@@ -33,7 +35,8 @@ const router = createBrowserRouter(
               children: [
                 { path: "", element: <PingerCheck /> },
                 { path: "Detail", element: <PingerCheckDetail /> },
-                { path: "DetailTemp", element: <PingerCheckDetail /> },
+                { path: "Loading", element: <PingerCheckLoading /> },
+                { path: "Result", element: <PingerCheckResult /> },
               ],
             },
           ],

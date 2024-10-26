@@ -22,7 +22,7 @@ export default function BottomTab() {
   const nowIn = bottomTabPathname[pathname];
 
   return (
-    <div className="fixed bottom-0 flex h-[104rem] w-full justify-center px-[40rem] pt-[21rem]">
+    <div className="fixed bottom-0 flex h-[104rem] w-full justify-center bg-white px-[40rem] pt-[21rem]">
       <div className="flex h-[46rem] w-full items-center justify-between">
         <button className="flex h-[46rem] w-[46rem] items-center justify-center">
           <Svg

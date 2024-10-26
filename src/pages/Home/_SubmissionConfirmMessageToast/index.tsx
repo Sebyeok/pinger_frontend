@@ -48,9 +48,9 @@ export default function SubmissionConfirmMessageToast() {
         open ? "bottom-[105rem] opacity-100" : "bottom-[90rem] opacity-0"
       )}
     >
-      <div className={tw("bg-navy-100 flex w-fit gap-[5rem] rounded-full px-[43.5rem] py-[13.5rem]")}>
-        <div className="ts-16-regular text-white">{hospital}</div>
-        <div className="ts-16-semibold text-white">접수 확인 중...</div>
+      <div className={tw("flex w-fit gap-[5rem] rounded-full bg-navy-100 px-[43.5rem] py-[13.5rem]")}>
+        <div className="text-white ts-16-regular">{hospital}</div>
+        <div className="text-white ts-16-semibold">접수 확인 중...</div>
       </div>
     </div>
   );

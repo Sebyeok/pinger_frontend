@@ -35,6 +35,8 @@ export default {
         mainModalPingerCheckItem: "0px 2px 6px rgba(0,0,0,0.20)",
         multiChoiceItemButton: "0px 2px 8px 0px rgba(0,0,0,0.20)",
         painThumb: "0px 3px 6px 0px rgba(0,0,0,0.35)",
+        resultBox: "0px 6px 18px 0px rgba(0,0,0,0.15)",
+        resultKtasLevelCircle: "0px 0px 7px 0px rgba(0,0,0,0.20)",
       },
       animation: {
         spin: "spin 1s linear infinite",

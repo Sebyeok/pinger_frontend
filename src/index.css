@@ -92,3 +92,7 @@ input:-webkit-autofill {
 .mainContainer {
   @apply pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] pt-[env(safe-area-inset-top)];
 }
+
+.preventScrollOverflow {
+  -webkit-overflow-scrolling: touch;
+}

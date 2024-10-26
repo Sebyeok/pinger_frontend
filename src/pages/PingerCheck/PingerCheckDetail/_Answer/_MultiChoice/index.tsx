@@ -1,120 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import MultiChoiceItem from "./_MultiChoiceItem";
+import { IMultiChoiceProps } from "./types";
 
+import { detailSymptomToNormal } from "@/assets/data/ktas";
 import { tw } from "@/utils/tw";
 
-export default function MultiChoice() {
+export default function MultiChoice({ data, page, dataIndex, setChoiceData }: IMultiChoiceProps) {
   const [selectedIndex, setSelectedIndex] = useState<Set<number>>(new Set<number>());
+  const listData = data.answer.data as string[];
+  const type = data.answer.type;
+
+  useEffect(() => {
+    const newChoiceData = Array.from(selectedIndex).map((index) => listData[index]);
+    if (dataIndex === page) setChoiceData(newChoiceData);
+  }, [selectedIndex, page]);
+
   return (
-    <div
-      className={tw("flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible pb-[60rem] pt-[7rem]")}
-    >
-      <MultiChoiceItem
-        index={1}
-        text={"의식수준의 변화"}
-        isSelected={true}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={2}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={3}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={4}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={5}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={6}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={7}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={8}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={9}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={10}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={11}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={12}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={13}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={14}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
-      <MultiChoiceItem
-        index={15}
-        text={"의식수준의 변화"}
-        isSelected={false}
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-      />
+    <div className={tw("flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible pt-[7rem]")}>
+      {listData.map((item, index) => (
+        <MultiChoiceItem
+          key={index}
+          index={index}
+          text={type === "symptomSelect" ? detailSymptomToNormal[item] : item}
+          selectedIndex={selectedIndex}
+          setSelectedIndex={setSelectedIndex}
+        />
+      ))}
     </div>
   );
 }

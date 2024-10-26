@@ -20,7 +20,7 @@ export default function Home() {
       <div className="mt-[6rem] flex h-[43rem] w-full justify-between pl-[29rem] pr-[20.5rem]">
         <div className="flex h-[43rem] gap-[8rem]">
           <Svg iconName="pingerLogo" className="h-[36rem] w-[23rem]" />
-          <Svg iconName="pingerTextLogo" className="mt-[12rem] h-[31rem] w-[105rem]" />
+          <Svg iconName="pingerTextLogo" className="mt-[12rem] h-[31rem] w-[105rem] fill-navy-100" />
         </div>
         <div className="flex h-[31rem] items-end gap-[23rem]">
           <Svg iconName="homeLocationIcon" className="h-[25rem] w-[23rem]" />

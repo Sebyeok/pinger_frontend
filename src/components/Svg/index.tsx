@@ -18,6 +18,7 @@ import homeAlarmIcon from "@images/svg/homeAlarmIcon.svg?react";
 import homeLocationIcon from "@images/svg/homeLocationIcon.svg?react";
 import pingerLogo from "@images/svg/pingerLogo.svg?react";
 import pingerTextLogo from "@images/svg/pingerTextLogo.svg?react";
+import rightIcon from "@images/svg/rightIcon.svg?react";
 import searchIcon from "@images/svg/searchIcon.svg?react";
 import thunderIcon from "@images/svg/thunderIcon.svg?react";
 import upRightIcon from "@images/svg/upRightIcon.svg?react";
@@ -39,6 +40,7 @@ const SvgComponents = {
   homeLocationIcon,
   pingerLogo,
   pingerTextLogo,
+  rightIcon,
   searchIcon,
   thunderIcon,
   upRightIcon,

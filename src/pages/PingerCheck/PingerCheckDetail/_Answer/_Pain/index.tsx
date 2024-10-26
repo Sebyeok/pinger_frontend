@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Direction, getTrackBackground, Range } from "react-range";
 
-import Svg from "@/components/Svg";
+import { IPainProps } from "./types";
+
 import { palette } from "@/themes/styles";
 import { tw } from "@/utils/tw";
 
@@ -32,11 +33,15 @@ const painData = [
   },
 ];
 
-export default function Pain() {
+export default function Pain({ dataIndex, page, setChoiceData }: IPainProps) {
   const [score, setScore] = useState<number[]>([3]);
 
+  useEffect(() => {
+    if (dataIndex === page) setChoiceData([String(...score)]);
+  }, [score, page]);
+
   return (
-    <div className={tw("mt-[40rem] h-full pb-[140rem]")}>
+    <div className={tw("mt-[40rem] h-full w-full pb-[40rem]")}>
       <div className={tw("flex h-full items-start gap-[20rem]")}>
         <div className={tw("mt-[-8rem] flex h-[calc(100%+24rem)] flex-col justify-between")}>
           {painData.map((data) => (
@@ -135,7 +140,7 @@ export default function Pain() {
                 key={props.key}
                 className={tw(
                   score[0] === 1 ? "mt-[-12rem]" : score[0] === 6 ? "mt-[-2rem]" : "",
-                  "shadow-painThumb h-[32rem] w-[32rem] rounded-full border-[1.5rem] border-solid border-navy-100 bg-white outline-none"
+                  "h-[32rem] w-[32rem] rounded-full border-[1.5rem] border-solid border-navy-100 bg-white shadow-painThumb outline-none"
                 )}
               />
             )}

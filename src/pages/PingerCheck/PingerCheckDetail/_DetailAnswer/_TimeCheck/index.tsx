@@ -1,8 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import CircularSlider from "@fseehawer/react-circular-slider";
 import dayjs from "dayjs";
 import koDayjs from "dayjs/locale/ko";
+
+import { ITimeCheckProps } from "./types";
 
 import { palette } from "@/themes/styles";
 import { tw } from "@/utils/tw";
@@ -21,16 +23,20 @@ function calculateAngle(hours: number, minutes: number): number {
   return angle;
 }
 
-export default function TimeCheck() {
+export default function TimeCheck({ setChoiceData, dataIndex, page }: ITimeCheckProps) {
   const now = useMemo(() => dayjs().locale(koDayjs), []);
   const nowAngle = useMemo(() => calculateAngle(now.hour(), now.minute()), [now]);
 
   const [angle, setAngle] = useState<number>(1);
 
+  useEffect(() => {
+    if (dataIndex === page) setChoiceData([String(angle)]);
+  }, [angle, page]);
+
   return (
     <div
       className={tw(
-        "absolute bottom-[111rem] left-[8rem] mt-[12rem] flex h-[calc(100%-env(safe-area-inset-top)-339rem)] w-[calc(100%-16rem)] flex-1 flex-col items-center rounded-[25rem] bg-navy-100 px-[43.5rem] py-[24rem]"
+        "mt-[12rem] flex h-full w-[calc(100%-16rem)] flex-col items-center rounded-[25rem] bg-navy-100 px-[43.5rem] py-[24rem]"
       )}
     >
       <div className={tw("text-[50rem] font-semibold leading-[60rem] text-white")}>Q.</div>
