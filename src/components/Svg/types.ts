@@ -19,6 +19,7 @@ export type TSvgName =
   | "heartIcon"
   | "homeAlarmIcon"
   | "homeLocationIcon"
+  | "marker"
   | "pingerLogo"
   | "pingerTextLogo"
   | "rightIcon"

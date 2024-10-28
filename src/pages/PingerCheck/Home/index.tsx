@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 
 import KeywordBox from "./_KeywordBox";
@@ -6,18 +6,21 @@ import KeywordBox from "./_KeywordBox";
 import Svg from "@/components/Svg";
 import useCustomNavigate from "@/hooks/useCustomNavigate";
 
-const keywords = ["피부", "신경계", "알레르기", "알레르기", "알레르기", "연관 증상이 없어요"];
+const keywords: { [key: string]: string[] } = {
+  정재형: ["소화", "신경계", "피부", "알레르기", "코, 귀", "연관 증상이 없어요"],
+  이윤정: ["신경계", "소화", "코, 귀", "피부", "알레르기", "연관 증상이 없어요"],
+  정진아: ["소화", "알레르기", "피부", "신경계", "코, 귀", "연관 증상이 없어요"],
+  정우철: ["피부", "신경계", "알레르기", "코, 귀", "소화기계", "연관 증상이 없어요"],
+};
 
 export default function PingerCheck() {
   const navigate = useCustomNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    // console.log(Object.values(detailSymptoms).flatMap((item) => item));
-    // const a: { [key: string]: string } = {};
-    // detailSymptomList.forEach((key) => (a[key] = detailSymptomToNormal[key]));
-    // console.log(JSON.stringify(a));
-  }, []);
+  const keyword = useMemo(
+    () => (location.state.data.name ? keywords[location.state.data.name] : keywords.정재형),
+    [location.state]
+  );
 
   return (
     <div className="mainContainer h-screen w-full overflow-hidden bg-white">
@@ -34,8 +37,8 @@ export default function PingerCheck() {
           <div className="flex justify-between">
             <div className="w-[140rem] text-white ts-18-semibold">발현 가능성이 높은 주증상 키워드</div>
             <div className="flex flex-col gap-[12rem]">
-              {keywords.map((keyword, index) => (
-                <KeywordBox key={keyword + index} text={keyword} />
+              {keyword.map((item, index) => (
+                <KeywordBox key={item + index} text={item} />
               ))}
             </div>
           </div>

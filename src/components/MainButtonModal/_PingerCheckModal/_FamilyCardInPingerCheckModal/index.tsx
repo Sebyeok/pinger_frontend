@@ -1,5 +1,6 @@
 import dayjs, { Dayjs } from "dayjs";
 import { useSetRecoilState } from "recoil";
+import { useSwiper } from "swiper/react";
 
 import { IFamilyCardInPingerCheckModalProps } from "./types";
 
@@ -14,6 +15,7 @@ export default function FamilyCardInPingerCheckModal({
   isActive,
   setModalOpen,
 }: IFamilyCardInPingerCheckModalProps) {
+  const swiper = useSwiper();
   const navigate = useCustomNavigate();
   const setMainButtonModalOpen = useSetRecoilState(mainButtonModalState);
   const tagColor =
@@ -59,6 +61,7 @@ export default function FamilyCardInPingerCheckModal({
         setModalOpen(false);
         setMainButtonModalOpen(false);
         navigate("/PingerCheck/", "slideFromRight", { state: { data: { name: name } } });
+        setTimeout(() => swiper.slideTo(0), 500);
       }}
     >
       <div

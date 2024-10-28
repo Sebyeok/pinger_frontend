@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,6 +11,10 @@ import { tw } from "@/utils/tw";
 
 export default function PingerCheckModal({ modalOpen, setModalOpen }: IPingerCheckModalProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  useEffect(() => {
+    // swiper.slideReset();
+  }, [location.pathname]);
 
   return (
     <div

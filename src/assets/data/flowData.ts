@@ -356,6 +356,201 @@ export const questionData: (name: string) => TQuestionData = (name: string) => (
       },
     },
   ],
+  소화: [
+    {
+      symptom: ["복통", "식욕부진", "변비", "설사", "직장내 이물질", "샅고랑 부위 통증 / 종괴", "구토 / 구역"],
+      question: {
+        title: [`현재 ${name}님의`, "체온", "을 알려주세요."],
+        titleDesc: "체온계를 이용한 정확한 체온을 입력해주세요.",
+      },
+      answer: { type: "temperature" },
+    },
+    {
+      symptom: ["복통"],
+      question: {
+        title: [`현재 ${name}님의`, "복통 위치", "를 알려주세요."],
+        titleDesc: "복통이 주로 발생하는 위치를 선택해주세요.",
+      },
+      answer: {
+        type: "multiChoice",
+        data: ["상복부", "하복부", "좌측", "우측", "명치 부위", "전체적으로"],
+      },
+    },
+    {
+      symptom: ["식욕부진"],
+      question: {
+        title: [`현재 ${name}님의`, "식욕 상태", "를 알려주세요."],
+        titleDesc: "최근 식사량이 줄었는지 알려주세요.",
+      },
+      answer: {
+        type: "singleChoice",
+        data: ["평소보다 식사량 감소", "음식에 대한 관심 없음", "전체적으로 기운 없음", "기타"],
+      },
+    },
+    {
+      symptom: ["샅고랑 부위 통증 / 종괴"],
+      question: {
+        title: [`현재 ${name}님의`, "샅고랑 부위 통증 위치", "를 알려주세요."],
+        titleDesc: "통증이 발생하는 위치를 선택해주세요.",
+      },
+      answer: {
+        type: "multiChoice",
+        data: ["좌측 샅고랑", "우측 샅고랑", "중앙", "양측 샅고랑", "확실하지 않음"],
+      },
+    },
+    {
+      symptom: ["직장내 이물질"],
+      question: {
+        title: [`현재 ${name}님의`, "직장 내 이물질로 인한 통증", "을 알려주세요."],
+        titleDesc: "이물질로 인한 통증 정도를 선택해주세요.",
+      },
+      answer: {
+        type: "pain",
+      },
+    },
+    {
+      symptom: ["구토 / 구역"],
+      question: {
+        title: [`현재 ${name}님의`, "구토 빈도", "를 알려주세요."],
+        titleDesc: "하루에 몇 번 정도 구토 또는 구역질이 발생하는지 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoiceDetail",
+        data: ["한두 번", "세 번 이상", "다섯 번 이상", "수시로 발생"],
+      },
+    },
+    {
+      symptom: ["설사"],
+      question: {
+        title: [`현재 ${name}님의`, "설사 빈도", "를 알려주세요."],
+        titleDesc: "하루에 몇 번이나 설사를 하는지 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoice",
+        data: ["하루에 한두 번", "하루 세 번 이상", "하루 다섯 번 이상", "상시 발생"],
+      },
+    },
+    {
+      symptom: ["식욕부진"],
+      question: {
+        title: [`현재 ${name}님의`, "식욕 부진 이유", "를 알려주세요."],
+        titleDesc: "식욕 부진의 원인을 아는 경우 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoiceDetail",
+        data: ["스트레스 또는 감정적 요인", "질병 또는 건강 문제", "기타 원인", "확실하지 않음"],
+      },
+    },
+    {
+      symptom: ["복통", "식욕부진", "변비", "설사", "직장내 이물질", "샅고랑 부위 통증 / 종괴", "구토 / 구역"],
+      question: {
+        title: ["정확한 증상 확인을 위해", "세부 질문", "을 드리겠습니다."],
+        titleDesc: "증상이 지속된 기간을 알려주세요.",
+        detailQuestion: "증상이 얼마나 지속되었나요?",
+      },
+      answer: {
+        type: "timeChoice",
+      },
+    },
+  ],
+  "코, 귀": [
+    {
+      symptom: [
+        "코피",
+        "코의 이물질",
+        "상기도감염 증상 호소",
+        "코의 외상",
+        "이통 (Earache)",
+        "귀의 이물질",
+        "청력소실",
+      ],
+      question: {
+        title: [`현재 ${name}님의`, "체온", "을 알려주세요."],
+        titleDesc: "체온계를 이용한 정확한 체온을 입력해주세요.",
+      },
+      answer: { type: "temperature" },
+    },
+    {
+      symptom: ["코피"],
+      question: {
+        title: [`현재 ${name}님의`, "코피 출혈 위치", "를 알려주세요."],
+        titleDesc: "출혈이 발생하는 위치를 선택해주세요.",
+      },
+      answer: {
+        type: "multiChoice",
+        data: ["왼쪽 코", "오른쪽 코", "양쪽 코", "모르겠음"],
+      },
+    },
+    {
+      symptom: ["상기도감염 증상 호소"],
+      question: {
+        title: [`현재 ${name}님의`, "주요 증상", "을 선택해주세요."],
+        titleDesc: "상기도감염의 주요 증상을 모두 선택해주세요.",
+      },
+      answer: {
+        type: "multiChoice",
+        data: ["콧물", "기침", "인후통", "두통", "발열"],
+      },
+    },
+    {
+      symptom: ["코의 이물질"],
+      question: {
+        title: [`현재 ${name}님의`, "코 이물질 감각", "을 알려주세요."],
+        titleDesc: "코 안에 이물질이 느껴지는지 여부를 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoice",
+        data: ["느껴짐", "느껴지지 않음", "확실하지 않음"],
+      },
+    },
+    {
+      symptom: ["청력소실"],
+      question: {
+        title: [`현재 ${name}님의`, "청력 저하 정도", "를 알려주세요."],
+        titleDesc: "청력 소실의 정도를 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoice",
+        data: ["부분적 청력 소실", "완전 청력 소실", "가끔씩 발생", "확실하지 않음"],
+      },
+    },
+    {
+      symptom: ["이통 (Earache)"],
+      question: {
+        title: [`현재 ${name}님의`, "귀 통증 정도", "를 알려주세요."],
+        titleDesc: "통증의 정도를 선택해주세요.",
+      },
+      answer: { type: "pain" },
+    },
+    {
+      symptom: ["코의 외상"],
+      question: {
+        title: [`현재 ${name}님의`, "코 외상 상태", "를 알려주세요."],
+        titleDesc: "코에 입은 외상의 상태를 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoiceDetail",
+        data: ["가벼운 타박상", "붓기와 통증", "코뼈 부러짐", "코의 출혈"],
+      },
+    },
+    {
+      symptom: [
+        "코피",
+        "코의 이물질",
+        "상기도감염 증상 호소",
+        "코의 외상",
+        "이통 (Earache)",
+        "귀의 이물질",
+        "청력소실",
+      ],
+      question: {
+        title: ["정확한 증상 확인을 위해", "세부 질문", "을 드리겠습니다."],
+        titleDesc: "증상이 지속된 기간을 알려주세요.",
+        detailQuestion: "증상이 얼마나 지속되었나요?",
+      },
+      answer: { type: "timeChoice" },
+    },
+  ],
 });
 
 export const timeChoiceData = {

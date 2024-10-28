@@ -75,7 +75,7 @@ export default function PingerCheckResult() {
         <div className={tw("mt-[14rem] px-[19rem]")}>
           <div
             className={tw(
-              "shadow-resultBox w-full overflow-hidden rounded-[14rem] border-[1rem] border-solid border-navy-100 bg-white"
+              "w-full overflow-hidden rounded-[14rem] border-[1rem] border-solid border-navy-100 bg-white shadow-resultBox"
             )}
           >
             <div className={tw("h-[14rem] w-full bg-ktas3")} />
@@ -118,7 +118,7 @@ export default function PingerCheckResult() {
                   </div>
                   <div
                     className={tw(
-                      "shadow-resultKtasLevelCircle absolute right-[calc(46%-9rem)] flex h-[18rem] w-[18rem] items-center justify-center rounded-full bg-ktas3"
+                      "absolute right-[calc(46%-9rem)] flex h-[18rem] w-[18rem] items-center justify-center rounded-full bg-ktas3 shadow-resultKtasLevelCircle"
                     )}
                   >
                     <div className={tw("h-[8rem] w-[8rem] rounded-full bg-white")} />
