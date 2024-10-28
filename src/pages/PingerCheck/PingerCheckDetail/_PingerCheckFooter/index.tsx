@@ -45,6 +45,13 @@ export default function PingerCheckFooter({
       setData((old) => [old[0], ...newData]);
       setChoiceData([]);
       setPage((old) => old + 1);
+    } else if (page === 1 && data[1].answer.type === "symptomSelect") {
+      const newData = questionData(location.state.data.name)[location.state.data.symptom].filter((item) =>
+        choiceData.some((choiceSymptom) => item.symptom?.includes(choiceSymptom))
+      );
+      setData((old) => [old[0], old[1], ...newData]);
+      setChoiceData([]);
+      setPage((old) => old + 1);
     } else if (data[page].answer.type === "timeChoice") {
       if (choiceData[0] === "0") {
         setData((old) => [...old, timeChoiceData.time]);

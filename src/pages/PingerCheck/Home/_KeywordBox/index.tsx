@@ -11,14 +11,16 @@ export default function KeywordBox({ text }: { text: string }) {
   return (
     <button
       onClick={() =>
-        navigate("/PingerCheck/Detail", "slideFromRight", {
-          state: {
-            data: {
-              symptom: text,
-              name: location.state.data.name,
-            },
-          },
-        })
+        text === "연관 증상이 없어요"
+          ? navigate("/PingerCheck/Search", "slideFromRight", { state: location.state })
+          : navigate("/PingerCheck/Detail", "slideFromRight", {
+              state: {
+                data: {
+                  symptom: text,
+                  name: location.state.data.name,
+                },
+              },
+            })
       }
       className="flex h-[47rem] w-[212rem] items-center justify-between rounded-[10rem] border-[1rem] border-solid border-gray-400 bg-[#9BA4B3] bg-opacity-15 p-[12.5rem]"
     >

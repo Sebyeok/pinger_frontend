@@ -16,24 +16,49 @@ export default function PingerCheckDetail() {
   const locationData = useMemo(() => location.state.data, []);
 
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const [data, setData] = useState<TPingerCheckData[]>([makeFirstData()]);
+  const [data, setData] = useState<TPingerCheckData[]>(makeFirstData());
   const [page, setPage] = useState<number>(0);
 
   const [choiceData, setChoiceData] = useState<string[]>([]);
 
   const mainRef = useRef<HTMLDivElement>(null);
 
-  function makeFirstData(): TPingerCheckData {
-    return {
-      question: {
-        title: ["아래의 항목 중 해당하는", "증상 or 상태", "를 선택해주세요."],
-        titleDesc: "해당하는 버튼을 모두 선택해주세요.",
-      },
-      answer: {
-        type: "symptomSelect",
-        data: detailSymptoms[locationData.symptom],
-      },
-    };
+  function makeFirstData(): TPingerCheckData[] {
+    if (locationData.symptom === "황달") {
+      const a = [
+        {
+          question: {
+            title: [`현재 ${locationData.name}님의`, "체온", "을 알려주세요."],
+            titleDesc: "체온계를 이용한 정확한 체온을 입력해주세요.",
+          },
+          answer: { type: "temperature" },
+        },
+        {
+          question: {
+            title: ["아래의 항목 중 해당하는", "동반 증상", "를 선택해주세요."],
+            titleDesc: "해당하는 버튼을 모두 선택해주세요.",
+          },
+          answer: {
+            type: "symptomSelect",
+            data: detailSymptoms[locationData.symptom],
+          },
+        },
+      ];
+      return [...a];
+    } else {
+      return [
+        {
+          question: {
+            title: ["아래의 항목 중 해당하는", "증상 or 상태", "를 선택해주세요."],
+            titleDesc: "해당하는 버튼을 모두 선택해주세요.",
+          },
+          answer: {
+            type: "symptomSelect",
+            data: detailSymptoms[locationData.symptom],
+          },
+        },
+      ];
+    }
   }
 
   useEffect(() => {

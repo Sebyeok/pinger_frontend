@@ -399,27 +399,6 @@ export const questionData: (name: string) => TQuestionData = (name: string) => (
       },
     },
     {
-      symptom: ["직장내 이물질"],
-      question: {
-        title: [`현재 ${name}님의`, "직장 내 이물질로 인한 통증", "을 알려주세요."],
-        titleDesc: "이물질로 인한 통증 정도를 선택해주세요.",
-      },
-      answer: {
-        type: "pain",
-      },
-    },
-    {
-      symptom: ["구토 / 구역"],
-      question: {
-        title: [`현재 ${name}님의`, "구토 빈도", "를 알려주세요."],
-        titleDesc: "하루에 몇 번 정도 구토 또는 구역질이 발생하는지 선택해주세요.",
-      },
-      answer: {
-        type: "singleChoiceDetail",
-        data: ["한두 번", "세 번 이상", "다섯 번 이상", "수시로 발생"],
-      },
-    },
-    {
       symptom: ["설사"],
       question: {
         title: [`현재 ${name}님의`, "설사 빈도", "를 알려주세요."],
@@ -431,16 +410,39 @@ export const questionData: (name: string) => TQuestionData = (name: string) => (
       },
     },
     {
+      symptom: ["구토 / 구역"],
+      question: {
+        title: [`현재 ${name}님의`, "구토 빈도", "를 알려주세요."],
+        titleDesc: "하루에 몇 번 정도 구토 또는 구역질이 발생하는지 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoice",
+        data: ["한두 번", "세 번 이상", "다섯 번 이상", "수시로 발생"],
+      },
+    },
+
+    {
       symptom: ["식욕부진"],
       question: {
         title: [`현재 ${name}님의`, "식욕 부진 이유", "를 알려주세요."],
         titleDesc: "식욕 부진의 원인을 아는 경우 선택해주세요.",
       },
       answer: {
-        type: "singleChoiceDetail",
+        type: "singleChoice",
         data: ["스트레스 또는 감정적 요인", "질병 또는 건강 문제", "기타 원인", "확실하지 않음"],
       },
     },
+    {
+      symptom: ["직장내 이물질"],
+      question: {
+        title: [`현재 ${name}님의`, "직장 내 이물질로 인한 통증", "을 알려주세요."],
+        titleDesc: "이물질로 인한 통증 정도를 선택해주세요.",
+      },
+      answer: {
+        type: "pain",
+      },
+    },
+
     {
       symptom: ["복통", "식욕부진", "변비", "설사", "직장내 이물질", "샅고랑 부위 통증 / 종괴", "구토 / 구역"],
       question: {
@@ -547,6 +549,112 @@ export const questionData: (name: string) => TQuestionData = (name: string) => (
         title: ["정확한 증상 확인을 위해", "세부 질문", "을 드리겠습니다."],
         titleDesc: "증상이 지속된 기간을 알려주세요.",
         detailQuestion: "증상이 얼마나 지속되었나요?",
+      },
+      answer: { type: "timeChoice" },
+    },
+  ],
+  황달: [
+    {
+      symptom: ["구토 / 구역"],
+      question: {
+        title: [`현재 ${name}님의`, "구토 빈도", "를 알려주세요."],
+        titleDesc: "하루에 몇 번 정도 구토 또는 구역질이 발생하는지 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoice",
+        data: ["한두 번", "세 번 이상", "다섯 번 이상", "수시로 발생"],
+      },
+    },
+    {
+      symptom: ["복부 종괴 / 팽만"],
+      question: {
+        title: [`현재 ${name}님의`, "복부 팽만 정도", "를 알려주세요."],
+        titleDesc: "복부가 부어오른 정도를 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoiceWithTag",
+        data: [
+          {
+            title: "경미한 팽만",
+            tags: ["약간 부어오름", "통증 없음"],
+            desc: "복부가 약간 부어오르며, 통증이나 불편감이 거의 없음. 일상생활에 큰 지장이 없는 상태.",
+          },
+          {
+            title: "중등도 팽만",
+            tags: ["눈에 띄는 부어오름", "약간의 통증"],
+            desc: "복부가 눈에 띄게 부어오르며, 약간의 통증이나 불편감이 있을 수 있음. 일상적인 활동에 지장을 줄 수 있음.",
+          },
+          {
+            title: "심한 팽만",
+            tags: ["심한 부어오름", "강한 통증", "호흡 곤란"],
+            desc: "복부가 심하게 부어오르고, 강한 통증과 함께 호흡에 불편을 느낄 수 있음. 즉각적인 의료 처치가 필요할 수 있음.",
+          },
+        ],
+      },
+    },
+    {
+      symptom: ["혈변"],
+      question: {
+        title: [`현재 ${name}님의`, "변의 색상", "을 알려주세요."],
+        titleDesc: "변의 색상을 선택해주세요.",
+      },
+      answer: {
+        type: "singleChoice",
+        data: ["밝은 빨간색", "어두운 빨간색", "검은색"],
+      },
+    },
+    {
+      symptom: ["이물질 삼킴 (FB Swallowing)"],
+      question: {
+        title: [`현재 ${name}님의`, "이물질로 인한 불편감", "을 알려주세요."],
+        titleDesc: "이물질을 삼킨 후 불편감을 느끼는 위치를 선택해주세요.",
+      },
+      answer: {
+        type: "multiChoice",
+        data: ["목", "가슴", "복부", "확실하지 않음"],
+      },
+    },
+    {
+      symptom: ["복통"],
+      question: {
+        title: [`현재 호소하는 증상의`, "복통 정도", "를 선택해주세요."],
+        titleDesc: "출혈이 발생하는 위치를 선택해주세요.",
+      },
+      answer: {
+        type: "pain",
+      },
+    },
+
+    {
+      symptom: ["설사"],
+      question: {
+        title: ["정확한 증상 확인을 위해", "세부 질문", "을 드리겠습니다."],
+        titleDesc: "아래의 내용을 확인하고 해당되는 버튼을 선택해주세요.",
+        detailQuestion: "평소보다 기력이 약해지거나 어지럽고 입이 마르나요?",
+      },
+      answer: {
+        type: "singleChoiceDetail",
+        data: ["네", "아니오", "잘 모르겠어요"],
+      },
+    },
+    {
+      symptom: ["식욕부진"],
+      question: {
+        title: ["정확한 증상 확인을 위해", "세부 질문", "을 드리겠습니다."],
+        titleDesc: "아래의 내용을 확인하고 해당되는 버튼을 선택해주세요.",
+        detailQuestion: "특별히 체중을 빼려고 하지 않았는데도 반년 사이 5kg 이상 체중이 감소했나요?",
+      },
+      answer: {
+        type: "singleChoiceDetail",
+        data: ["네", "아니오"],
+      },
+    },
+    {
+      symptom: ["설사", "식욕부진", "구토 / 구역", "복부 종괴 / 팽만", "혈변", "복통", "이물질 삼킴 (FB Swallowing)"],
+      question: {
+        title: ["정확한 증상 확인을 위해", "세부 질문", "을 드리겠습니다."],
+        titleDesc: "증상이 지속된 기간을 알려주세요.",
+        detailQuestion: "황달 증상을 느낀지 얼마나 되었나요?",
       },
       answer: { type: "timeChoice" },
     },

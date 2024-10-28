@@ -54,7 +54,7 @@ export default function Map() {
           </div>
         </div>
       </div>
-      <div className={tw("h-full w-full bg-[#a0a0a0]")}>
+      <div className={tw("h-full w-full bg-white")}>
         <KakaoMap status={status} />
       </div>
       <BottomTab />

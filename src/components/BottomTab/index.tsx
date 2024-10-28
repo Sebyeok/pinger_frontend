@@ -63,7 +63,7 @@ export default function BottomTab() {
         </button>
         <button
           className={tw(
-            nowIn === "history" ? "active:opacity-100" : "",
+            nowIn === "history" ? "active:opacity-100" : "active:opacity-100",
             "flex h-[46rem] w-[46rem] items-center justify-center"
           )}
         >

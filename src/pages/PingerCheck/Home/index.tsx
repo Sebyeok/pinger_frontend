@@ -28,7 +28,10 @@ export default function PingerCheck() {
         <Svg iconName="pingerLogo" className="h-[69rem] w-[45rem]" />
         <div className="mt-[30rem] ts-26-bold">{location.state.data.name}님, 어디가 불편하신가요?</div>
         <div className="mt-[16rem] ts-16-medium">검색 혹은 버튼 선택을 해주세요.</div>
-        <button className="relative mt-[58rem] flex h-[36.5rem] w-[373rem] justify-between px-[15rem]">
+        <button
+          onClick={() => navigate("/PingerCheck/Search", "slideFromRight", { state: location.state })}
+          className="relative mt-[58rem] flex h-[36.5rem] w-[373rem] justify-between px-[15rem]"
+        >
           <div className="text-gray-400 ts-18-regular">몸에 힘이 없고 입이 계속 말라요...</div>
           <Svg iconName="searchIcon" className="h-[25rem] w-[25rem]" />
           <div className="absolute bottom-0 left-[0rem] h-[15rem] w-full rounded-bl-[5rem] rounded-br-[5rem] border-b-[2rem] border-l-[2rem] border-r-[2rem] border-solid border-black"></div>
