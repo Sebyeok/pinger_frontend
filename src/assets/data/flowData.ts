@@ -358,7 +358,7 @@ export const questionData: (name: string) => TQuestionData = (name: string) => (
   ],
   소화: [
     {
-      symptom: ["복통", "식욕부진", "변비", "설사", "직장내 이물질", "샅고랑 부위 통증 / 종괴", "구토 / 구역"],
+      symptom: ["복통", "식욕부진", "변비", "설사", "샅고랑 부위 통증 / 종괴", "구토 / 구역"],
       question: {
         title: [`현재 ${name}님의`, "체온", "을 알려주세요."],
         titleDesc: "체온계를 이용한 정확한 체온을 입력해주세요.",
@@ -368,12 +368,11 @@ export const questionData: (name: string) => TQuestionData = (name: string) => (
     {
       symptom: ["복통"],
       question: {
-        title: [`현재 ${name}님의`, "복통 위치", "를 알려주세요."],
-        titleDesc: "복통이 주로 발생하는 위치를 선택해주세요.",
+        title: [`현재 호소하는 증상의`, "복통 정도", "를 선택해주세요."],
+        titleDesc: "출혈이 발생하는 위치를 선택해주세요.",
       },
       answer: {
-        type: "multiChoice",
-        data: ["상복부", "하복부", "좌측", "우측", "명치 부위", "전체적으로"],
+        type: "pain",
       },
     },
     {
@@ -433,18 +432,7 @@ export const questionData: (name: string) => TQuestionData = (name: string) => (
       },
     },
     {
-      symptom: ["직장내 이물질"],
-      question: {
-        title: [`현재 ${name}님의`, "직장 내 이물질로 인한 통증", "을 알려주세요."],
-        titleDesc: "이물질로 인한 통증 정도를 선택해주세요.",
-      },
-      answer: {
-        type: "pain",
-      },
-    },
-
-    {
-      symptom: ["복통", "식욕부진", "변비", "설사", "직장내 이물질", "샅고랑 부위 통증 / 종괴", "구토 / 구역"],
+      symptom: ["복통", "식욕부진", "변비", "설사", "샅고랑 부위 통증 / 종괴", "구토 / 구역"],
       question: {
         title: ["정확한 증상 확인을 위해", "세부 질문", "을 드리겠습니다."],
         titleDesc: "증상이 지속된 기간을 알려주세요.",
@@ -624,7 +612,6 @@ export const questionData: (name: string) => TQuestionData = (name: string) => (
         type: "pain",
       },
     },
-
     {
       symptom: ["설사"],
       question: {
