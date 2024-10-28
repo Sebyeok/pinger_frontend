@@ -60,7 +60,7 @@ export default function MainButtonModal() {
           className="relative flex h-[71rem] w-[282rem] items-center justify-center rounded-full bg-[#F6F7FB] bg-opacity-70 shadow-mainModalButton ts-18-medium"
         >
           <div className="absolute left-[17rem] flex h-[39rem] w-[39rem] items-center justify-center rounded-full bg-white">
-            <Svg iconName="heartIcon" className="h-[17rem] w-[19rem]" />
+            <Svg iconName="heartIcon" className="h-[17rem] w-[19rem] fill-ktas2 stroke-ktas2" />
           </div>
           내가 찜한 병원
         </button>

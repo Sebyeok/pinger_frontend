@@ -90,9 +90,13 @@ export default function TimeCheck({ setChoiceData, dataIndex, page }: ITimeCheck
           <div className={tw("absolute bottom-[10rem] text-white ts-12-bold")}>오후 12시</div>
         </div>
       </div>
-      <button className={tw("mt-[32rem] h-[42rem] w-[214rem] rounded-[20rem] bg-white text-navy-100 ts-16-bold")}>
+      <div
+        className={tw(
+          "mt-[32rem] flex h-[42rem] w-[214rem] items-center justify-center rounded-[20rem] bg-white text-navy-100 ts-16-bold"
+        )}
+      >
         {`약 ${angle} 시간`}
-      </button>
+      </div>
     </div>
   );
 }

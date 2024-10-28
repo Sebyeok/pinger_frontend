@@ -16,7 +16,6 @@ import diseaseIcon from "@images/svg/diseaseIcon.svg?react";
 import heartIcon from "@images/svg/heartIcon.svg?react";
 import homeAlarmIcon from "@images/svg/homeAlarmIcon.svg?react";
 import homeLocationIcon from "@images/svg/homeLocationIcon.svg?react";
-import marker from "@images/svg/marker.svg?react";
 import pingerLogo from "@images/svg/pingerLogo.svg?react";
 import pingerTextLogo from "@images/svg/pingerTextLogo.svg?react";
 import rightIcon from "@images/svg/rightIcon.svg?react";
@@ -39,7 +38,6 @@ const SvgComponents = {
   heartIcon,
   homeAlarmIcon,
   homeLocationIcon,
-  marker,
   pingerLogo,
   pingerTextLogo,
   rightIcon,

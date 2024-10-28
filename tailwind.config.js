@@ -38,6 +38,7 @@ export default {
         resultBox: "0px 6px 18px 0px rgba(0,0,0,0.15)",
         resultKtasLevelCircle: "0px 0px 7px 0px rgba(0,0,0,0.20)",
         mapTopContainer: "0px 0px 45px 0px rgba(0,0,0,0.25)",
+        resultModalContainer: "0px 4px 35px 0px rgba(0,0,0,0.31)",
       },
       animation: {
         spin: "spin 1s linear infinite",

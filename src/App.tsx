@@ -8,7 +8,7 @@ export default function App(): React.ReactElement {
   // }, [location.pathname]);
 
   return (
-    <main className="relative flex h-screen w-screen overflow-hidden">
+    <main id="main" className="relative flex h-screen w-screen overflow-hidden">
       <GlobalMain />
       <MainButtonModal />
     </main>

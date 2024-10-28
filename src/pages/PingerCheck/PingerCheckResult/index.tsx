@@ -1,5 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { useLocation } from "react-router-dom";
+
+import ListModal from "./_ListModal";
 
 import Svg from "@/components/Svg";
 import useCustomNavigate from "@/hooks/useCustomNavigate";
@@ -206,6 +209,8 @@ export default function PingerCheckResult() {
   const name = location.state.data.name;
   const data = useMemo(() => resultData[name as "정재형" | "이윤정"], [name]);
 
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
   return (
     <div className="mainContainer relative flex h-full w-full flex-col overflow-visible bg-gray-100 pb-[193rem]">
       <div className={tw("flex w-full flex-col overflow-y-scroll pb-[143rem]")}>
@@ -392,10 +397,15 @@ export default function PingerCheckResult() {
           "fixed bottom-0 flex h-[173rem] w-full items-center justify-center bg-gradient-to-b from-transparent to-gray-100 to-35%"
         )}
       >
-        <button className={tw("h-[65rem] w-[390rem] rounded-[20rem] bg-navy-100 text-white ts-20-semibold")}>
+        <button
+          onClick={() => setModalOpen(true)}
+          className={tw("h-[65rem] w-[390rem] rounded-[20rem] bg-navy-100 text-white ts-20-semibold")}
+        >
           적합 의료시설
         </button>
       </div>
+      {document.getElementById("main") &&
+        createPortal(<ListModal modalOpen={modalOpen} setModalOpen={setModalOpen} />, document.getElementById("main")!)}
     </div>
   );
 }
