@@ -76,7 +76,7 @@ export default function ListModal({ modalOpen, setModalOpen }: IListModalProps) 
       <div className={tw("absolute h-full w-full")} onClick={() => setModalOpen(false)}></div>
       <div
         className={tw(
-          "shadow-resultModalContainer absolute bottom-[38rem] flex h-[540rem] w-[390rem] flex-col items-center rounded-[20rem] bg-white"
+          "absolute bottom-[38rem] flex h-[540rem] w-[390rem] flex-col items-center rounded-[20rem] bg-white shadow-resultModalContainer"
         )}
       >
         <div
