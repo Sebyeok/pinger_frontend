@@ -68,7 +68,7 @@ export default function PingerCheckSearch() {
           className="absolute bottom-[51rem] left-[30rem]"
           onClick={() => navigate("/PingerCheck", "slideFromLeft", { state: location.state })}
         >
-          <Svg iconName="backIcon" className="h-[24rem] w-[33rem] stroke-white" />
+          <Svg iconName="backIcon" className="h-[24rem] w-[33rem] stroke-black" />
         </button>
       </div>
     </div>

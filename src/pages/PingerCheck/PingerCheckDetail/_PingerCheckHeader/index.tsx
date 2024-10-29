@@ -8,7 +8,7 @@ import { tw } from "@/utils/tw";
 export default function PingerCheckHeader({ theme }: IPingerCheckHeaderProps) {
   const navigate = useCustomNavigate();
   return (
-    <div className={tw("absolute left-0 top-[78rem] w-full")}>
+    <div className={tw("absolute left-0 top-[calc(env(safe-area-inset-top)+19rem)] w-full")}>
       <div className={tw("flex h-[35rem] w-full items-center justify-between px-[20rem]")}>
         <div
           className={tw(
