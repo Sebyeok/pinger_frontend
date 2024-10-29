@@ -43,6 +43,9 @@ export default {
       animation: {
         spin: "spin 1s linear infinite",
       },
+      fontFamily: {
+        poppin: "Poppins",
+      },
     },
   },
   plugins: [require("./src/themes/tailwindCustomPlugin")],

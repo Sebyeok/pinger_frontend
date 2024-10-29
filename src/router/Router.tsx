@@ -6,6 +6,7 @@ import { WrongAccess } from "@/pages/Error/WrongAccess";
 import History from "@/pages/History";
 import Home from "@/pages/Home";
 import Map from "@/pages/Map";
+import Mypage from "@/pages/Mypage";
 import PingerCheck from "@/pages/PingerCheck/Home";
 import PingerCheckDetail from "@/pages/PingerCheck/PingerCheckDetail";
 import PingerCheckLoading from "@/pages/PingerCheck/PingerCheckLoading";
@@ -45,6 +46,10 @@ const router = createBrowserRouter(
             {
               path: "History",
               element: <History />,
+            },
+            {
+              path: "Mypage",
+              element: <Mypage />,
             },
           ],
         },

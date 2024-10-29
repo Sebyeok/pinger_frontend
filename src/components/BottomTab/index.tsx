@@ -81,7 +81,10 @@ export default function BottomTab() {
             className={tw(nowIn === "history" ? "stroke-white" : "stroke-gray-400", "h-[20rem] w-[23rem]")}
           />
         </button>
-        <button className={tw("active:opacity-100", "flex h-[46rem] w-[46rem] items-center justify-center")}>
+        <button
+          onClick={() => navigate("/Mypage", "fade")}
+          className={tw("active:opacity-100", "flex h-[46rem] w-[46rem] items-center justify-center")}
+        >
           <Svg
             iconName="bottomTabPersonIcon"
             className={tw(nowIn === "mypage" ? "stroke-navy-100" : "stroke-gray-400", "h-[26rem] w-[27rem]")}
