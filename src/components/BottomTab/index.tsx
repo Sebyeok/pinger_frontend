@@ -22,7 +22,12 @@ export default function BottomTab() {
   const nowIn = bottomTabPathname[pathname];
 
   return (
-    <div className="fixed bottom-0 z-[1] flex h-[104rem] w-full justify-center bg-white px-[40rem] pt-[21rem]">
+    <div
+      className={tw(
+        nowIn === "history" ? "bg-navy-100" : "bg-white",
+        "fixed bottom-0 z-[1] flex h-[104rem] w-full justify-center px-[40rem] pt-[21rem]"
+      )}
+    >
       <div className="flex h-[46rem] w-full items-center justify-between">
         <button
           disabled={nowIn === "home"}
@@ -55,21 +60,25 @@ export default function BottomTab() {
         <button
           className={tw(
             "flex h-[46rem] w-[46rem] items-center justify-center rounded-full shadow-bottomTabButton",
-            "bg-navy-100"
+            nowIn === "history" ? "bg-white" : "bg-navy-100"
           )}
           onClick={() => setModalOpen(true)}
         >
-          <Svg iconName="bottomTabMainIcon" className={tw("fill-white", "h-[20rem] w-[21rem]")} />
+          <Svg
+            iconName="bottomTabMainIcon"
+            className={tw(nowIn === "history" ? "fill-navy-100" : "fill-white", "h-[20rem] w-[21rem]")}
+          />
         </button>
         <button
           className={tw(
-            nowIn === "history" ? "active:opacity-100" : "active:opacity-100",
+            nowIn === "history" ? "active:opacity-100" : "",
             "flex h-[46rem] w-[46rem] items-center justify-center"
           )}
+          onClick={() => navigate("/History", "fade")}
         >
           <Svg
             iconName="bottomTabListIcon"
-            className={tw(nowIn === "history" ? "stroke-navy-100" : "stroke-gray-400", "h-[20rem] w-[23rem]")}
+            className={tw(nowIn === "history" ? "stroke-white" : "stroke-gray-400", "h-[20rem] w-[23rem]")}
           />
         </button>
         <button className={tw("active:opacity-100", "flex h-[46rem] w-[46rem] items-center justify-center")}>

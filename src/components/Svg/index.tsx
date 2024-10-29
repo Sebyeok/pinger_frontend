@@ -11,9 +11,11 @@ import bottomTabMainIcon from "@images/svg/bottomTabMainIcon.svg?react";
 import bottomTabMapIcon from "@images/svg/bottomTabMapIcon.svg?react";
 import bottomTabPersonIcon from "@images/svg/bottomTabPersonIcon.svg?react";
 import calendarIcon from "@images/svg/calendarIcon.svg?react";
+import chartIcon from "@images/svg/chartIcon.svg?react";
 import closeIcon from "@images/svg/closeIcon.svg?react";
 import diseaseIcon from "@images/svg/diseaseIcon.svg?react";
 import heartIcon from "@images/svg/heartIcon.svg?react";
+import historyCheckIcon from "@images/svg/historyCheckIcon.svg?react";
 import homeAlarmIcon from "@images/svg/homeAlarmIcon.svg?react";
 import homeLocationIcon from "@images/svg/homeLocationIcon.svg?react";
 import pingerLogo from "@images/svg/pingerLogo.svg?react";
@@ -33,9 +35,11 @@ const SvgComponents = {
   bottomTabMapIcon,
   bottomTabPersonIcon,
   calendarIcon,
+  chartIcon,
   closeIcon,
   diseaseIcon,
   heartIcon,
+  historyCheckIcon,
   homeAlarmIcon,
   homeLocationIcon,
   pingerLogo,

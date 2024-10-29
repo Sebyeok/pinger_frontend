@@ -3,6 +3,7 @@ import { Outlet, createBrowserRouter } from "react-router-dom";
 import App from "@/App";
 
 import { WrongAccess } from "@/pages/Error/WrongAccess";
+import History from "@/pages/History";
 import Home from "@/pages/Home";
 import Map from "@/pages/Map";
 import PingerCheck from "@/pages/PingerCheck/Home";
@@ -40,6 +41,10 @@ const router = createBrowserRouter(
                 { path: "Result", element: <PingerCheckResult /> },
                 { path: "Search", element: <PingerCheckSearch /> },
               ],
+            },
+            {
+              path: "History",
+              element: <History />,
             },
           ],
         },
