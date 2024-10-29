@@ -1,14 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CustomOverlayMap, Map, MarkerClusterer, useKakaoLoader } from "react-kakao-maps-sdk";
 
-import marker from "@images/marker.png";
-
 import { SKakaoMap as S } from "./styles";
 import { ICenter } from "./types";
 
 import { babyData, emergencyData, mapData } from "@/assets/data/mapData";
 import Svg from "@/components/Svg";
-import { isOpen } from "@/utils/isOpen";
 import { tw } from "@/utils/tw";
 
 const space9Location = { lat: 35.89268, lng: 128.61047624710724 };
@@ -59,9 +56,6 @@ export default function KakaoMap({ status }: { status: number }) {
     }
   }, [status]);
 
-  useEffect(() => {
-    console.log(JSON.stringify(emergencyData.array.filter((item) => item.address.includes("대구"))));
-  }, []);
   return (
     <div className={tw("h-full w-full")}>
       {loading || (
@@ -100,16 +94,14 @@ export default function KakaoMap({ status }: { status: number }) {
                 yAnchor={0.97}
                 zIndex={12}
               >
-                <Svg
-                  iconName="marker"
-                  onClick={() => {
-                    if (clickedId === item[0].id) {
-                      setClickedId("");
-                    } else {
-                      setClickedId(item[0].id);
-                    }
-                  }}
-                />
+                <div
+                  className={tw(
+                    "flex h-[35rem] w-[35rem] items-center justify-center rounded-full border-[1rem] border-solid border-white bg-[#3AC197] shadow-resultBox"
+                  )}
+                >
+                  <div className={tw("absolute h-[3rem] w-[14rem] rounded-full bg-white")} />
+                  <div className={tw("absolute h-[3rem] w-[14rem] rotate-90 rounded-full bg-white")} />
+                </div>
               </CustomOverlayMap>
             ))}
           </MarkerClusterer>
