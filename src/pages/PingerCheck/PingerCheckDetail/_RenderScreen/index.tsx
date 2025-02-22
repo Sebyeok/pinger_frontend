@@ -35,12 +35,7 @@ export default function RenderScreen({ data, dataIndex, setChoiceData, page }: I
             {data.question.titleDesc ? data.question.titleDesc : "아래의 내용을 확인하고 해당되는 버튼을 선택해주세요."}
           </div>
         </div>
-        <div
-          className={tw(
-            lightThemeType.includes(type) ? "pb-[8rem]" : "px-[21.5rem]",
-            "flex flex-1 flex-col items-center"
-          )}
-        >
+        <div className={tw(lightThemeType.includes(type) && "pb-[8rem]", "flex flex-1 flex-col items-center")}>
           {(() => {
             if (type === "symptomSelect" || type === "multiChoice")
               return <MultiChoice data={data} page={page} dataIndex={dataIndex} setChoiceData={setChoiceData} />;

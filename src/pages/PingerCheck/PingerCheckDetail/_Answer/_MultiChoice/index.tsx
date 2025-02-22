@@ -17,7 +17,11 @@ export default function MultiChoice({ data, page, dataIndex, setChoiceData }: IM
   }, [selectedIndex, page]);
 
   return (
-    <div className={tw("flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible pt-[7rem]")}>
+    <div
+      className={tw(
+        "flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible px-[21.5rem] pt-[7rem]"
+      )}
+    >
       {listData.map((item, index) => (
         <MultiChoiceItem
           key={index}

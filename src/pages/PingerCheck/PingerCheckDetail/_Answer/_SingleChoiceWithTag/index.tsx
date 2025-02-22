@@ -32,7 +32,9 @@ export default function SingleChoiceWithTag({ data, page, dataIndex, setChoiceDa
 
   return (
     <div
-      className={tw("flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible pb-[60rem] pt-[7rem]")}
+      className={tw(
+        "flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible px-[21.5rem] pb-[60rem] pt-[7rem]"
+      )}
     >
       {listData.map((data, index) => (
         <button

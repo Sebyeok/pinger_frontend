@@ -23,7 +23,9 @@ export default function SingleChoice({ data, setChoiceData, dataIndex, page }: I
 
   return (
     <div
-      className={tw("flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible pb-[60rem] pt-[7rem]")}
+      className={tw(
+        "flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible px-[21.5rem] pb-[60rem] pt-[7rem]"
+      )}
     >
       {listData.map((text, index) => (
         <button
@@ -34,7 +36,7 @@ export default function SingleChoice({ data, setChoiceData, dataIndex, page }: I
           )}
           onClick={() => setSelectedIndex(index)}
         >
-          <div className={tw("flex w-full justify-between gap-[8rem]")}>
+          <div className={tw("flex w-full items-center justify-between gap-[8rem]")}>
             <div className={tw("whitespace-pre-line text-left ts-14-medium")}>{text}</div>
             <div
               className={tw(

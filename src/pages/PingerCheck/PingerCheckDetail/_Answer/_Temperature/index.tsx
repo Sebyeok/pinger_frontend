@@ -21,7 +21,7 @@ function useFixViewportHeight() {
 
 export default function Temperature({ setChoiceData, page, dataIndex }: ITemperatureProps) {
   useFixViewportHeight();
-  const [temperature, setTemperature] = useState<string>("36");
+  const [temperature, setTemperature] = useState<string>("");
 
   function validateTemperature(text: string) {
     const pattern = /^(?:[1-9]\d{0,1}\.[1-9]|[1-9]\d{0,1}|)$/;
@@ -48,7 +48,7 @@ export default function Temperature({ setChoiceData, page, dataIndex }: ITempera
   // }, []);
 
   return (
-    <div>
+    <div className="px-[21.5rem]">
       <div
         className={tw(
           "mt-[16rem] flex h-[130rem] w-full items-center justify-between rounded-[15rem] border-[1rem] border-solid border-gray-400 bg-white pl-[50rem] pr-[38rem]"
