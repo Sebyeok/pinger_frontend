@@ -1,5 +1,3 @@
-import { useCallback, useEffect } from "react";
-
 import BurnBodySurface from "../_Answer/_BurnBodySurface";
 import MultiChoice from "../_Answer/_MultiChoice";
 import Pain from "../_Answer/_Pain";

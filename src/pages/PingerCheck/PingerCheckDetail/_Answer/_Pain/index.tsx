@@ -41,7 +41,7 @@ export default function Pain({ dataIndex, page, setChoiceData }: IPainProps) {
   }, [score, page]);
 
   return (
-    <div className={tw("mt-[40rem] h-full w-full pb-[40rem]")}>
+    <div className={tw("mt-[40rem] h-full w-full px-[21.5rem] pb-[40rem]")}>
       <div className={tw("flex h-full items-start gap-[20rem]")}>
         <div className={tw("mt-[-8rem] flex h-[calc(100%+24rem)] flex-col justify-between")}>
           {painData.map((data) => (

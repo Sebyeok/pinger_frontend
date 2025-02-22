@@ -10,7 +10,7 @@ const historyData = [
   {
     name: "정재형",
     birth: dayjs("1981-12-31"),
-    date: dayjs("2024-10-28"),
+    date: dayjs().set("date", 21),
     symptoms: ["역류성 인후두염", "협심증", "식도염", "심부진"],
     color: {
       bg: "bg-[#FFEFB4]",
@@ -21,7 +21,7 @@ const historyData = [
   {
     name: "정우철",
     birth: dayjs("1963-1-3"),
-    date: dayjs("2024-10-12"),
+    date: dayjs().set("date", 12),
     symptoms: ["고혈압 악화", "COPD", "전립선 비대증", "배뇨장애"],
     color: {
       bg: "bg-[#A7E5D1]",
@@ -32,7 +32,7 @@ const historyData = [
   {
     name: "정진아",
     birth: dayjs("2015-12-11"),
-    date: dayjs("2024-10-4"),
+    date: dayjs().set("date", 4),
     symptoms: ["천식 발작", "중증 탈수", "고열성 경련"],
     color: {
       bg: "bg-[#F9C4AE]",
