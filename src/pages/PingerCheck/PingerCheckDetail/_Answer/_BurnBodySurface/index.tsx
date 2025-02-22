@@ -24,7 +24,9 @@ export default function BurnBodySurface({ dataIndex, page, setChoiceData }: IBur
 
   return (
     <div
-      className={tw("flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible pb-[60rem] pt-[7rem]")}
+      className={tw(
+        "flex w-full flex-1 flex-col gap-[12rem] overflow-y-auto overflow-x-visible px-[21.5rem] pb-[60rem] pt-[7rem]"
+      )}
     >
       {burnBodySurfaceData.map((data, index) => (
         <button
