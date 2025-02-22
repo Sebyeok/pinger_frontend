@@ -5,8 +5,23 @@ import { ITemperatureProps } from "./types";
 import Svg from "@/components/Svg";
 import { tw } from "@/utils/tw";
 
+function useFixViewportHeight() {
+  useEffect(() => {
+    const setRealVh = () => {
+      const vh = window.innerHeight * 0.01; // 실제 창 높이
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setRealVh(); // 초기 설정
+    window.addEventListener("resize", setRealVh); // 창 크기 변경 시 업데이트
+
+    return () => window.removeEventListener("resize", setRealVh);
+  }, []);
+}
+
 export default function Temperature({ setChoiceData, page, dataIndex }: ITemperatureProps) {
-  const [temperature, setTemperature] = useState<string>("");
+  useFixViewportHeight();
+  const [temperature, setTemperature] = useState<string>("36");
 
   function validateTemperature(text: string) {
     const pattern = /^(?:[1-9]\d{0,1}\.[1-9]|[1-9]\d{0,1}|)$/;
@@ -16,6 +31,21 @@ export default function Temperature({ setChoiceData, page, dataIndex }: ITempera
   useEffect(() => {
     if (page === dataIndex) setChoiceData([temperature]);
   }, [temperature, page]);
+
+  // useEffect(() => {
+  //   const handleFocus = () => window.scrollTo(0, 0);
+
+  //   const inputs = document.querySelectorAll("input, textarea");
+  //   inputs.forEach((input) => {
+  //     input.addEventListener("focus", handleFocus);
+  //   });
+
+  //   return () => {
+  //     inputs.forEach((input) => {
+  //       input.removeEventListener("focus", handleFocus);
+  //     });
+  //   };
+  // }, []);
 
   return (
     <div>

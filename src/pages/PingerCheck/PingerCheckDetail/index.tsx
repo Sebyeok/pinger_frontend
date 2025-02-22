@@ -77,7 +77,7 @@ export default function PingerCheckDetail() {
         "mainContainer h-screen w-full transition-colors"
       )}
     >
-      <div className={tw("relative mt-[75rem] h-[calc(100vh-env(safe-area-inset-top)-177rem)] w-full overflow-hidden")}>
+      <div className={tw("mt-[75rem] h-[calc(100vh-env(safe-area-inset-top)-177rem)] w-full overflow-hidden")}>
         <div ref={mainRef} className={tw("flex h-full w-full overflow-visible transition-transform duration-300")}>
           {data.map((pingerCheckData, index) => (
             <RenderScreen

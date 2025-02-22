@@ -74,7 +74,12 @@ export default function PingerCheckFooter({
   return (
     <div className={tw("absolute bottom-0 flex h-[103rem] w-full flex-col bg-white")}>
       <div className={tw("relative h-[5rem] w-full bg-gray-300")}>
-        <div className={tw("h-full w-[20rem] bg-ktas1")} />
+        <div
+          className={tw("h-full bg-ktas1", "transition-[width]")}
+          style={{
+            width: `calc(${16.5 * (page + 1) >= 95 ? 95 + ((page + 1) % 5) : 16.5 * (page + 1)}%)`,
+          }}
+        />
         <div className={tw("absolute left-0 top-0 flex h-full w-full justify-between")}>
           <div />
           <div className={tw("h-full w-[4rem] bg-white")} />
